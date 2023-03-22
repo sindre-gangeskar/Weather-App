@@ -5,7 +5,8 @@ var desc = document.getElementById("descData");
 var feels = document.getElementById("feelsData");
 var _name = document.getElementById("name");
 var form = document.getElementById("form");
-var background = document.getElementById("background-hidden");
+var background = document.getElementById("background");
+var background_transition = document.getElementById("background-transition");
 var previousLocation = "";
 var originalColor = temp.style.color;
 form.addEventListener("submit", function () {
@@ -27,28 +28,33 @@ form.addEventListener("submit", function () {
         temp.innerHTML = Math.round(tempNumber) + "℃";
         desc.innerHTML = responseJson["weather"][0]["description"];
 
-        if (tempNumber) {
-          background.style.opacity = 0;
-          background.style.opacity = 1;
-          if (tempNumber > 12) {
-            background.src = "/imgs/ghibli_summer.png";
-          } else if (tempNumber < 12 && tempNumber > 6) {
-            background.src = "/imgs/ghibli_spring.png";
-          } else if (tempNumber <= 5) {
-            background.src = "/imgs/ghibli_winter.png";
-          }
-        }
-
-        console.log(responseJson);
+        /* Change images based on temperature */
+        if (tempNumber < 5) SetBackground(0); /* Set to winter image */
+          if (tempNumber < 12 && tempNumber > 6)   SetBackground(1); /* Set to spring image */
+        if (tempNumber > 13) SetBackground(2); /* Set to summer image */
       });
   } catch (error) {
     console.log(error);
   }
 
   ResetInput();
-  console.log(value.value);
 });
 
 function ResetInput() {
   document.getElementById("submitValue").value = "";
+}
+function SetBackground(index) {
+  let imgs = [
+    "/imgs/ghibli_winter.png",
+    ["/imgs/ghibli_spring.png"],
+    ["/imgs/ghibli_summer.png"],
+  ];
+  background_transition.src = imgs[index].valueOf(index);
+  background_transition.style.opacity = 1;
+
+setTimeout(() => {
+  background.src = imgs[index].valueOf(index);
+  background_transition.style.opacity = 0;
+}, 300)
+
 }
