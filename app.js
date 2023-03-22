@@ -27,13 +27,9 @@ form.addEventListener("submit", function () {
         desc.innerHTML = responseJson["weather"][0]["description"];
 
         if (tempNumber < 5) {
-          setTimeout(() => {
-            background.style.opacity = 1;
-          });
+          background.style.opacity = 1;
         } else {
-          setTimeout(() => {
-            background.style.opacity = 0;
-          });
+          background.style.opacity = 0;
         }
         console.log(responseJson);
       });
