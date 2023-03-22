@@ -92,7 +92,19 @@ body {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  z-index: -1;
+  z-index: -2;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 1;
+}
+
+#background-hidden {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: -2;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
 }
 #backgroundOverlay {
   width: 100%;

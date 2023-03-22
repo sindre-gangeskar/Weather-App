@@ -5,6 +5,7 @@ var desc = document.getElementById("descData");
 var feels = document.getElementById("feelsData");
 var _name = document.getElementById("name");
 var form = document.getElementById("form");
+var background = document.getElementById("background-hidden");
 var previousLocation = "";
 form.addEventListener("submit", function () {
   try {
@@ -24,6 +25,16 @@ form.addEventListener("submit", function () {
         _name.innerHTML = responseJson["name"];
         temp.innerHTML = Math.round(tempNumber) + "℃";
         desc.innerHTML = responseJson["weather"][0]["description"];
+
+        if (tempNumber < 5) {
+          setTimeout(() => {
+            background.style.opacity = 1;
+          });
+        } else {
+          setTimeout(() => {
+            background.style.opacity = 0;
+          });
+        }
         console.log(responseJson);
       });
   } catch (error) {
