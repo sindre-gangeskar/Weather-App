@@ -27,14 +27,18 @@ form.addEventListener("submit", function () {
         temp.innerHTML = Math.round(tempNumber) + "℃";
         desc.innerHTML = responseJson["weather"][0]["description"];
 
-        if (tempNumber < 5) {
-          background.style.opacity = 1;
-          temp.style.color = blue;
-        } else {
+        if (tempNumber) {
           background.style.opacity = 0;
-          temp.style.color = originalColor;
-
+          background.style.opacity = 1;
+          if (tempNumber > 12) {
+            background.src = "/imgs/ghibli_summer.png";
+          } else if (tempNumber < 12 && tempNumber > 6) {
+            background.src = "/imgs/ghibli_spring.png";
+          } else if (tempNumber <= 5) {
+            background.src = "/imgs/ghibli_winter.png";
+          }
         }
+
         console.log(responseJson);
       });
   } catch (error) {
