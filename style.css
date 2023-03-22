@@ -86,6 +86,15 @@ body {
   display: inline-flex;
   gap: 30px;
 }
+.tip{
+  position:absolute;
+  font-size: 1.5rem;
+  color: rgb(255, 246, 207);
+  text-transform: uppercase;
+  text-shadow: var(--textShadow);
+  font-weight: bolder;
+  bottom:-50%;
+}
 
 #background {
   position: absolute;

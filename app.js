@@ -7,15 +7,16 @@ var _name = document.getElementById("name");
 var form = document.getElementById("form");
 var background = document.getElementById("background-hidden");
 var previousLocation = "";
+var originalColor = temp.style.color;
 form.addEventListener("submit", function () {
   try {
     fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${value.value},no&lang=no&units=metric&appid=f6d9a84f2131a569011eb0d3107ce0b9`
+      `https://api.openweathermap.org/data/2.5/weather?q=${value.value},lang=en&units=metric&appid=f6d9a84f2131a569011eb0d3107ce0b9`
     )
       .then((response) => {
         if (response.ok) return response.json();
         else if (!response.ok) {
-          _name.innerHTML = "Finner ikke lokasjon";
+          _name.innerHTML = "Cannot find location";
           temp.innerHTML = "";
           desc.innerHTML = "";
         }
@@ -28,8 +29,11 @@ form.addEventListener("submit", function () {
 
         if (tempNumber < 5) {
           background.style.opacity = 1;
+          temp.style.color = blue;
         } else {
           background.style.opacity = 0;
+          temp.style.color = originalColor;
+
         }
         console.log(responseJson);
       });

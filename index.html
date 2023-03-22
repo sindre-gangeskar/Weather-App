@@ -5,26 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>Weather App</title>
+    <title>Handydrawn Weather</title>
   </head>
   <body>
-<!--     <img src="/imgs/sunny_cityscape.png" alt="" id="static" /> -->
+
     <img src="/imgs/sunny_cityscape.png" alt="" id="background" />
     <img src="/imgs/cold_cozy.png" alt="" id="background-hidden" />
     <div id="backgroundOverlay"></div>
 
     <div class="display-container">
-      <h2 id="name">Lokasjon</h2>
+      <h2 id="name">Location</h2>
       <div class="card">
-        <div class="temp" id="tempData">Temperatur</div>
-        <div id="descData">Beskrivelse</div>
+        <div class="temp" id="tempData">Temperature</div>
+        <div id="descData">Description</div>
       </div>
       <form id="form" onsubmit="return false">
         <div class="input">
-          <input type="text" placeholder="Skriv inn lokasjon" id="submitValue" />
-      
+          <input type="text" placeholder="Search Here (Example: Oslo)" id="submitValue" />
+          
         </div>
       </form>
+      <div class="tip">Specify country by writing for example: Oslo, NO</div>
     </div>
     <script src="app.js"></script>
   </body>
