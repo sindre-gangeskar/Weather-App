@@ -13,10 +13,14 @@ form.addEventListener("submit", function () {
     )
       .then((response) => {
         if (response.ok) return response.json();
-        else if (!response.ok) _name.innerHTML = "Finner ikke lokasjon";
+        else if (!response.ok) {
+          _name.innerHTML = "Finner ikke lokasjon";
+          temp.innerHTML = "";
+          desc.innerHTML = "";
+        }
       })
       .then((responseJson) => {
-        var tempNumber = Number(responseJson['main']['temp']);
+        var tempNumber = Number(responseJson["main"]["temp"]);
         _name.innerHTML = responseJson["name"];
         temp.innerHTML = Math.round(tempNumber) + "℃";
         desc.innerHTML = responseJson["weather"][0]["description"];
