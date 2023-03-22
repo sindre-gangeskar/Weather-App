@@ -13,14 +13,14 @@ form.addEventListener("submit", function () {
     )
       .then((response) => {
         if (response.ok) return response.json();
-        else if(!response.ok)  _name.innerHTML = "Finner ikke lokasjon";
-       
+        else if (!response.ok) _name.innerHTML = "Finner ikke lokasjon";
       })
       .then((responseJson) => {
+        var tempNumber = Number(responseJson['main']['temp']);
         _name.innerHTML = responseJson["name"];
-        temp.innerHTML = responseJson["main"]["temp"] + "℃";
+        temp.innerHTML = Math.round(tempNumber) + "℃";
         desc.innerHTML = responseJson["weather"][0]["description"];
-        console.log(responseJson)
+        console.log(responseJson);
       });
   } catch (error) {
     console.log(error);
@@ -33,5 +33,3 @@ form.addEventListener("submit", function () {
 function ResetInput() {
   document.getElementById("submitValue").value = "";
 }
-
-

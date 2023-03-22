@@ -1,7 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
 
 :root {
-  --backgroundColor: #518e8f68;
+  --backgroundColor: #bfa07894;
+  --textShadow: text-shadow:2px 2px #efa300;
+  --boxShadow: box-shadow: 4px 4px 40px #ff910088;
 }
 
 * {
@@ -15,6 +17,8 @@ body {
   font-family: "Patrick Hand", sans-serif;
   padding: 0;
   margin: 0;
+  text-shadow:2px 2px #efa300;
+
 }
 
 .display-container {
@@ -40,12 +44,13 @@ body {
   font-size: 4.5rem;
   color: rgb(255, 246, 207);
   filter: drop-shadow(0px 20px 40px rgba(0, 0, 0, 0.293));
+  background-color: var(--backgroundColor);
 }
 
 .input input[type="text"] {
   background-color: var(--backgroundColor);
   width: 350px;
-  height: 50px;
+  height: 80px;
   text-align: center;
   border-radius: 1.5rem;
   backdrop-filter: blur(6px);
@@ -54,6 +59,9 @@ body {
   text-transform: uppercase;
   border: none;
   transition: ease 0.3s;
+  border: #f3f1ba solid 4px;
+  text-shadow: var(--textShadow);
+  box-shadow: 4px 4px 40px #ff910088;
 }
 .input input[type="text"]:focus {
   background-color: #f59e48c7;
@@ -125,8 +133,11 @@ body {
   backdrop-filter: blur(10px);
   border-radius: 1.5rem;
   font-weight: 800;
+  border: #f3f1ba solid 4px;
+  box-shadow: 4px 4px 40px #ff910088;
 }
 .card div {
   color: rgb(255, 246, 207);
   font-size: 40px;
+  
 }
