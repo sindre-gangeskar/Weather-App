@@ -21,6 +21,9 @@ body {
 
 }
 
+body img {
+  filter: blur(5px);
+}
 .display-container {
   display: grid;
   flex-direction: row;
