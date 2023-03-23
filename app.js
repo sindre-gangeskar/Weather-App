@@ -15,7 +15,7 @@ form.addEventListener("submit", function () {
     )
       .then((response) => {
         if (response.ok) return response.json();
-        else if (!response.ok) {
+        else {
           _name.innerHTML = "Cannot find location";
           temp.innerHTML = "";
           desc.innerHTML = "";
