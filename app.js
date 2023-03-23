@@ -23,14 +23,20 @@ form.addEventListener("submit", function () {
       })
       .then((responseJson) => {
         var tempNumber = Number(responseJson["main"]["temp"]);
-        _name.innerHTML = responseJson["name"]+", " + responseJson['sys']['country'];
+        _name.innerHTML =
+          responseJson["name"] + ", " + responseJson["sys"]["country"];
         temp.innerHTML = Math.round(tempNumber) + "℃";
         desc.innerHTML = responseJson["weather"][0]["description"];
         console.log(responseJson);
+        
         /* Change images based on temperature */
-        if (tempNumber < 5) SetBackground(0); /* Set to winter image */
-          if (tempNumber < 12 && tempNumber > 6)   SetBackground(1); /* Set to spring image */
-        if (tempNumber > 13) SetBackground(2); /* Set to summer image */
+        if (tempNumber < 5) {
+            /* Set to winter image */
+          SetBackground(0);
+        } else if (tempNumber <= 15 && tempNumber >= 5) {
+          /* Set to spring image */
+          SetBackground(1);
+        } else SetBackground(2); /* Set to summer image */
       });
   } catch (error) {
     console.log(error);
@@ -51,9 +57,8 @@ function SetBackground(index) {
   background_transition.src = imgs[index].valueOf(index);
   background_transition.style.opacity = 1;
 
-setTimeout(() => {
-  background.src = imgs[index].valueOf(index);
-  background_transition.style.opacity = 0;
-}, 300)
-
+  setTimeout(() => {
+    background.src = imgs[index].valueOf(index);
+    background_transition.style.opacity = 0;
+  }, 300);
 }
