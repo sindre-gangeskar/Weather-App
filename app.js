@@ -24,10 +24,10 @@ form.addEventListener("submit", function () {
       })
       .then((responseJson) => {
         var tempNumber = Number(responseJson["main"]["temp"]);
-        _name.innerHTML = responseJson["name"];
+        _name.innerHTML = responseJson["name"]+", " + responseJson['sys']['country'];
         temp.innerHTML = Math.round(tempNumber) + "℃";
         desc.innerHTML = responseJson["weather"][0]["description"];
-
+        console.log(responseJson);
         /* Change images based on temperature */
         if (tempNumber < 5) SetBackground(0); /* Set to winter image */
           if (tempNumber < 12 && tempNumber > 6)   SetBackground(1); /* Set to spring image */
