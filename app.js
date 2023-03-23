@@ -30,14 +30,8 @@ form.addEventListener("submit", function () {
           descData.innerHTML = responseJson["weather"][0]["description"];
           console.log(responseJson);
 
-          /* Change images based on temperature */
-          if (tempNumber < 5) {
-            /* Set to winter image */
-            SetBackground(0);
-          } else if (tempNumber <= 15 && tempNumber >= 5) {
-            /* Set to spring image */
-            SetBackground(1);
-          } else SetBackground(2); /* Set to summer image */
+
+          (tempNumber < 5 ? SetBackground(0) : tempNumber <= 15 && tempNumber > 5 ? SetBackground(1) : SetBackground(2) );
         });
     } catch (error) {
       console.log(error);
