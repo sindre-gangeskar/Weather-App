@@ -2,13 +2,12 @@ var submit = document.getElementById("submit");
 var value = document.getElementById("submitValue");
 var temp = document.getElementById("tempData");
 var desc = document.getElementById("descData");
-var feels = document.getElementById("feelsData");
 var _name = document.getElementById("name");
 var form = document.getElementById("form");
 var background = document.getElementById("background");
 var background_transition = document.getElementById("background-transition");
 var previousLocation = "";
-var originalColor = temp.style.color;
+
 form.addEventListener("submit", function () {
   try {
     fetch(
