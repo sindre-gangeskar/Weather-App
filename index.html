@@ -8,26 +8,28 @@
     <title>Handydrawn Weather</title>
   </head>
   <body>
-
     <img src="/imgs/ghibli_summer.png" alt="" id="background" />
     <img src="" alt="" id="background-transition" />
     <div id="backgroundOverlay"></div>
 
     <div class="display-container">
-      <h2 id="name">Location</h2>
+      <h2 id="nameData">Location</h2>
       <div class="card">
         <div class="temp" id="tempData">Temperature</div>
         <div id="descData">Description</div>
       </div>
       <form id="form" onsubmit="return false">
         <div class="input">
-          <input type="text" placeholder="Search Here (Example: Oslo)" id="submitValue"/>
+          <input
+            type="text"
+            placeholder="Search Here (Example: Oslo)"
+            id="submitValue"
+          />
         </div>
         <div class="tip">Search for any city in the world</div>
       </form>
-
     </div>
-    
+
     <script src="app.js"></script>
   </body>
 </html>

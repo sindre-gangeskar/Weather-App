@@ -33,7 +33,7 @@ body img {
   transform: translate(-50%, -50%);
 }
 
-#name {
+#nameData {
 
   text-decoration-line: underline;
   border: 2px solid rgb(255, 246, 207);
@@ -101,7 +101,7 @@ body img {
   
 }
 
-#background {
+#areaName {
   position: absolute;
   height: 100%;
   width: 100%;

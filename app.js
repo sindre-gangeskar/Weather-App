@@ -1,12 +1,11 @@
 var submit = document.getElementById("submit");
 var value = document.getElementById("submitValue");
-var temp = document.getElementById("tempData");
-var desc = document.getElementById("descData");
-var _name = document.getElementById("name");
+var tempData = document.getElementById("tempData");
+var descData = document.getElementById("descData");
+var nameData = document.getElementById("nameData");
 var form = document.getElementById("form");
 var background = document.getElementById("background");
 var background_transition = document.getElementById("background-transition");
-var previousLocation = "";
 
 form.addEventListener("submit", function () {
   if (value.value != "") {
@@ -18,17 +17,17 @@ form.addEventListener("submit", function () {
           if (response.ok) {
             return response.json();
           } else {
-            _name.innerHTML = "Cannot find location";
-            temp.innerHTML = "";
-            desc.innerHTML = "";
+            nameData.innerHTML = "Cannot find location";
+            tempData.innerHTML = "";
+            descData.innerHTML = "";
           }
         })
         .then((responseJson) => {
           var tempNumber = Number(responseJson["main"]["temp"]);
-          _name.innerHTML =
+          nameData.innerHTML =
             responseJson["name"] + ", " + responseJson["sys"]["country"];
-          temp.innerHTML = Math.round(tempNumber) + "℃";
-          desc.innerHTML = responseJson["weather"][0]["description"];
+          tempData.innerHTML = Math.round(tempNumber) + "℃";
+          descData.innerHTML = responseJson["weather"][0]["description"];
           console.log(responseJson);
 
           /* Change images based on temperature */
