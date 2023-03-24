@@ -24,14 +24,20 @@ form.addEventListener("submit", function () {
         })
         .then((responseJson) => {
           var tempNumber = Number(responseJson["main"]["temp"]);
-          nameData.innerHTML =
-            responseJson["name"] + ", " + responseJson["sys"]["country"];
+          const capital = responseJson["name"].charAt(0).toUpperCase();
+          const lowerCase = responseJson["name"].slice(1);
+
+          nameData.innerHTML = `${capital}${lowerCase}, ${responseJson["sys"]["country"]}`;
+
           tempData.innerHTML = Math.round(tempNumber) + "℃";
           descData.innerHTML = responseJson["weather"][0]["description"];
           console.log(responseJson);
 
-
-          (tempNumber < 5 ? SetBackground(0) : tempNumber <= 15 && tempNumber > 5 ? SetBackground(1) : SetBackground(2) );
+          tempNumber < 5
+            ? SetBackground(0)
+            : tempNumber <= 15 && tempNumber > 5
+            ? SetBackground(1)
+            : SetBackground(2);
         });
     } catch (error) {
       console.log(error);

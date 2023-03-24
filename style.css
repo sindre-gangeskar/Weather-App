@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root {
   --backgroundColor: #bfa07894;
@@ -10,17 +10,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Patrick Hand", sans-serif;
+  font-family: "Amaranth", sans-serif;
 }
 
 body {
   padding: 0;
   margin: 0;
   text-shadow:2px 2px #efa300;
-}
-
-body img {
-  filter: blur(5px);
 }
 .display-container {
   display: grid;
@@ -32,25 +28,6 @@ body img {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
-#nameData {
-
-  text-decoration-line: underline;
-  border: 2px solid rgb(255, 246, 207);
-  border-radius: 5rem;
-  position: relative;
-  align-content: center;
-  margin: 30px auto;
-  text-transform: uppercase;
-  font-weight: 800;
-  font-size: 4.5rem;
-  color: rgb(255, 246, 207);
-  filter: drop-shadow(0px 20px 40px rgba(0, 0, 0, 0.293));
-  background-color: var(--backgroundColor);
-  padding:20px 80px 20px 80px;
-
-}
-
 .input input[type="text"] {
   background-color: var(--backgroundColor);
   width: 350px;
@@ -60,7 +37,6 @@ body img {
   backdrop-filter: blur(6px);
   color: white;
   font-size: 1.5rem;
-  text-transform: uppercase;
   border: none;
   transition: ease 0.3s;
   border: #f3f1ba solid 2px;
@@ -94,36 +70,61 @@ body img {
   position:relative;
   font-size: 2.2rem;
   color: rgb(255, 246, 207);
-  text-transform: uppercase;
+
   text-shadow: var(--textShadow);
   font-weight: bolder;
   bottom:-60%;
   
 }
+#nameData {
 
+  text-decoration-line: underline;
+  border: 2px solid rgb(255, 246, 207);
+  border-radius: 5rem;
+  position: relative;
+  align-content: center;
+  margin: 30px auto;
+  font-weight: 800;
+  font-size: 4.5rem;
+  color: rgb(255, 246, 207);
+  filter: drop-shadow(0px 20px 40px rgba(0, 0, 0, 0.293));
+  background-color: var(--backgroundColor);
+  padding:20px 80px 20px 80px;
+
+}
+#background, #background-transition{
+  filter: blur(4px);
+  
+}
+#background-solid{
+  background-color: black;
+  width:100%;
+  height:100%;
+  position: absolute;
+  z-index:-3;
+}
 #background {
   position: absolute;
   height: 100%;
   width: 100%;
-  object-fit: cover;
-  z-index: -2;
+  object-fit:cover;
+  z-index: -1;
   transition: opacity 0.3s ease-in-out;
   opacity: 1;
 }
-
 #background-transition {
   position: absolute;
   height: 100%;
   width: 100%;
   object-fit: cover;
-  z-index: -2;
+  z-index: -1;
   transition: opacity 0.3s ease;
   opacity: 0;
 }
 #backgroundOverlay {
   width: 100%;
   height: 100%;
-  position: fixed;
+  position: absolute;
   background-image: linear-gradient(
     to bottom,
     #74b4ee,
@@ -140,11 +141,10 @@ body img {
     #ffe8aa
   );
   z-index: -1;
-  object-fit: contain;
-  filter: opacity(50%);
+  object-fit: cover;
   mix-blend-mode: soft-light;
-}
 
+}
 .card {
   display: grid;
   align-content: center;
@@ -154,16 +154,15 @@ body img {
   margin: 0 auto;
   width: 400px;
   height: 200px;
-  text-transform: uppercase;
   background-color: var(--backgroundColor);
   backdrop-filter: blur(10px);
   border-radius: 1.5rem;
   font-weight: 800;
   border: #f3f1ba solid 2px;
   box-shadow: 4px 4px 40px #ff910088;
+  transition: 0.3s ease;
 }
 .card div {
   color: rgb(255, 246, 207);
   font-size: 40px;
-  
 }
